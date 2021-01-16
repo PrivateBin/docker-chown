@@ -55,6 +55,7 @@ CONFIG_EXTRA_LDFLAGS=""
 CONFIG_EXTRA_LDLIBS=""
 # CONFIG_USE_PORTABLE_CODE is not set
 CONFIG_STACK_OPTIMIZATION_386=y
+CONFIG_STATIC_LIBGCC=y
 
 #
 # Installation Options ("make install" behavior)
@@ -76,6 +77,7 @@ CONFIG_PREFIX="./_install"
 # CONFIG_DEBUG_SANITIZE is not set
 # CONFIG_UNIT_TEST is not set
 # CONFIG_WERROR is not set
+# CONFIG_WARN_SIMPLE_MSG is not set
 CONFIG_NO_DEBUG_LIB=y
 # CONFIG_DMALLOC is not set
 # CONFIG_EFENCE is not set
@@ -326,6 +328,7 @@ CONFIG_UNAME_OSNAME=""
 # CONFIG_UNLINK is not set
 # CONFIG_USLEEP is not set
 # CONFIG_UUDECODE is not set
+# CONFIG_BASE32 is not set
 # CONFIG_BASE64 is not set
 # CONFIG_UUENCODE is not set
 # CONFIG_WC is not set
@@ -1091,6 +1094,7 @@ CONFIG_BASH_IS_NONE=y
 # CONFIG_ASH_CMDCMD is not set
 # CONFIG_CTTYHACK is not set
 # CONFIG_HUSH is not set
+# CONFIG_SHELL_HUSH is not set
 # CONFIG_HUSH_BASH_COMPAT is not set
 # CONFIG_HUSH_BRACE_EXPANSION is not set
 # CONFIG_HUSH_LINENO_VAR is not set

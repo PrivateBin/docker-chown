@@ -1,9 +1,8 @@
-FROM alpine:3.12
+FROM alpine:3.13
 
 RUN apk add --no-cache \
 	bzip2 \
 	coreutils \
-	curl \
 	gcc \
 	gnupg \
 	linux-headers \
@@ -17,12 +16,12 @@ RUN apk add --no-cache \
 # sub   1024g/2C766641 2006-12-12
 RUN gpg --batch --keyserver ha.pool.sks-keyservers.net --recv-keys C9E9416F76E610DBD09D040F47B70C55ACC9965B
 
-ENV BUSYBOX_VERSION 1.31.1
+ENV BUSYBOX_VERSION 1.33.0
 
 RUN set -eux; \
 	tarball="busybox-${BUSYBOX_VERSION}.tar.bz2"; \
-	curl -fL -o busybox.tar.bz2 "https://busybox.net/downloads/$tarball"; \
-	curl -fL -o busybox.tar.bz2.sig "https://busybox.net/downloads/$tarball.sig"; \
+	wget -O busybox.tar.bz2 "https://busybox.net/downloads/$tarball"; \
+	wget -O busybox.tar.bz2.sig "https://busybox.net/downloads/$tarball.sig"; \
 	gpg --batch --verify busybox.tar.bz2.sig busybox.tar.bz2; \
 	mkdir -p /usr/src/busybox; \
 	tar -xf busybox.tar.bz2 -C /usr/src/busybox --strip-components 1; \
