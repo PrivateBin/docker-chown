@@ -44,7 +44,7 @@ spec:
       initContainers:
       - name: example-volume-permissions
         image: privatebin/chown
-        command: ['65534:65534', '/mnt']
+        args: ['65534:65534', '/mnt']
         securityContext:
           runAsUser: 0
           readOnlyRootFilesystem: True
