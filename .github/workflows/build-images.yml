@@ -17,7 +17,7 @@ jobs:
         id: prepare
         run: |
           IMAGE=privatebin/chown
-          QEMU_PLATFORMS=linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
+          QEMU_PLATFORMS=linux/arm/v6,linux/arm/v7,linux/arm64,linux/s390x
           VERSION=${GITHUB_REF##*/}
           echo ::set-output name=buildx_args::--tag ${IMAGE}:latest \
             --tag ${IMAGE}:${VERSION} \
