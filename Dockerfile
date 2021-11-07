@@ -16,7 +16,7 @@ RUN apk add --no-cache \
 # sub   1024g/2C766641 2006-12-12
 RUN gpg --batch --keyserver keyserver.ubuntu.com --recv-keys C9E9416F76E610DBD09D040F47B70C55ACC9965B
 
-ENV BUSYBOX_VERSION 1.33.1
+ENV BUSYBOX_VERSION 1.34.1
 
 RUN set -eux; \
 	tarball="busybox-${BUSYBOX_VERSION}.tar.bz2"; \
@@ -28,10 +28,6 @@ RUN set -eux; \
 	rm busybox.tar.bz2*
 
 WORKDIR /usr/src/busybox
-
-# https://www.mail-archive.com/toybox@lists.landley.net/msg02528.html
-# https://www.mail-archive.com/toybox@lists.landley.net/msg02526.html
-RUN sed -i 's/^struct kconf_id \*$/static &/g' scripts/kconfig/zconf.hash.c_shipped
 
 # see https://wiki.musl-libc.org/wiki/Building_Busybox
 COPY config /usr/src/busybox/.config
