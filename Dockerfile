@@ -43,6 +43,12 @@ RUN set -eux; \
 
 
 FROM scratch
+LABEL org.opencontainers.image.authors=support@privatebin.org \
+      org.opencontainers.image.vendor=PrivateBin \
+      org.opencontainers.image.documentation=https://github.com/PrivateBin/docker-chown/blob/master/README.md \
+      org.opencontainers.image.source=https://github.com/PrivateBin/docker-chown \
+      org.opencontainers.image.licenses=GPL-2.0 \
+      org.opencontainers.image.version="${RELEASE}"
 COPY --from=0 /usr/src/busybox/rootfs/ /
 USER 0
 WORKDIR /mnt

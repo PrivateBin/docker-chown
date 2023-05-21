@@ -21,8 +21,9 @@ jobs:
           VERSION=${GITHUB_REF##*/}
           echo "buildx_args=--tag ${IMAGE}:latest \
             --tag ${IMAGE}:${VERSION} \
-            --platform linux/amd64,linux/386,${QEMU_PLATFORMS} ."  >> $GITHUB_OUTPUT
-          echo "qemu_platforms=${QEMU_PLATFORMS}"  >> $GITHUB_OUTPUT
+            --platform linux/amd64,linux/386,${QEMU_PLATFORMS} ." >> $GITHUB_OUTPUT
+          echo "qemu_platforms=${QEMU_PLATFORMS}" >> $GITHUB_OUTPUT
+          echo "version=${VERSION}" >> $GITHUB_OUTPUT
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
         with:
@@ -33,7 +34,7 @@ jobs:
           install: true
       - name: Docker Build
         run: |
-          docker build --no-cache --pull --output "type=image,push=false" ${{ steps.prepare.outputs.buildx_args }}
+          docker build --no-cache --pull --output "type=image,push=false" --build-arg "RELEASE=${{ steps.prepare.outputs.version }}" ${{ steps.prepare.outputs.buildx_args }}
       - name: Docker Login
         if: success() && github.event_name != 'pull_request' && github.ref != 'refs/heads/master'
         env:
