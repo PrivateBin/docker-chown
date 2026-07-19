@@ -6,7 +6,7 @@ RUN apk add --no-cache \
 	make \
 	musl-dev
 
-ENV BUSYBOX_VERSION 1.38.0
+ENV BUSYBOX_VERSION=1.38.0
 
 RUN set -eux; \
 	tarball="busybox-${BUSYBOX_VERSION}.tar.bz2"; \
