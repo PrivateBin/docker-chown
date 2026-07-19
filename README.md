@@ -2,7 +2,7 @@
 
 In Kubernetes deployments one often needs to adjust the UNIX permissions of a persistent volume, so that a container that runs without root permission can write into it. This usually handled as an init container that runs once, before the actual service container gets launched. Using a fully populated userland from a Linux distibution or even just busybox instead of the single binary that is really needed for this seems wasteful and can slow the initialization of your deployment.
 
-This image contains a busybox binary that provides just the chown function, making it tiny 51 KiB, more secure and fast.
+This image contains a busybox binary that provides just the chown function, making it tiny 69 KiB, more secure and fast.
 
 ## Running the image
 

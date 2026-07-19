@@ -1,4 +1,4 @@
-FROM alpine:3.20
+FROM alpine:3.24
 
 RUN apk add --no-cache \
 	gcc \
@@ -6,7 +6,7 @@ RUN apk add --no-cache \
 	make \
 	musl-dev
 
-ENV BUSYBOX_VERSION 1.36.1
+ENV BUSYBOX_VERSION 1.38.0
 
 RUN set -eux; \
 	tarball="busybox-${BUSYBOX_VERSION}.tar.bz2"; \
